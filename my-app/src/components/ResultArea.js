@@ -20,8 +20,4 @@ class ResultArea extends Component {
   }
 }
 
-// !isNaN(key) || key === "-" || key === "+"
-// ? this.props.addSign(window.event.key)
-// : "";
-
 export default ResultArea;
