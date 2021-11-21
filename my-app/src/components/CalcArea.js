@@ -29,13 +29,13 @@ class CalcArea extends Component {
   render() {
     return (
       <div className="calc-area">
-        {signs.map((number) => {
+        {signs.map((sign) => {
           return (
             <Button
-              key={number}
-              id={!isNaN(number) ? numbersToWords.toWords(number) : number}
+              key={sign}
+              id={!isNaN(sign) ? numbersToWords.toWords(sign) : sign}
               addSign={this.props.addSign}
-              sign={number}
+              sign={sign}
             />
           );
         })}
