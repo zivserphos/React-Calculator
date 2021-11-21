@@ -22,6 +22,15 @@ class Calculator extends Component {
         exp: "",
       });
     }
+    if (isNaN(sign)) {
+      const str = this.state.exp;
+      const lastSign = str.charAt(str.length - 1);
+      console.log(str);
+      if (lastSign === "." && sign === ".") return false;
+      if (isNaN(lastSign) && sign !== "." && str.includes(".")) {
+        return;
+      }
+    }
     const newExp = this.state.exp.concat(sign);
     this.setState({
       exp: newExp,
