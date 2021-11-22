@@ -8,6 +8,7 @@ class Button extends Component {
   render() {
     return (
       <button
+        id={this.props.sign === "=" ? "equals" : this.props.id}
         className="button"
         onClick={() => this.props.addSign(this.props.sign)}
       >

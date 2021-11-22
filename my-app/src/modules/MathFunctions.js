@@ -15,7 +15,6 @@ function calculateExp(exp) {
   const oper = exp.replace(/[0-9]*[.]?[0-9]/g, "");
   const [num1, num2] = [numbers[0], numbers[1]];
   if (oper === "X") {
-    console.log(Number(num1), Number(num2));
     return (Number(num1) * Number(num2)).toString();
   }
   if (oper === "/") {
