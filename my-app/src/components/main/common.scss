@@ -5,7 +5,7 @@ body          {
   }
 
   .calculator   {
-    max-width: 400px;
+    max-width: 420px;
     margin: 0 auto;
     border: 2px solid #111;
     border-radius: 5px;
@@ -28,7 +28,7 @@ body          {
   }
 
   .button  {
-    background: rgba(0, 0, 0, 0.5); /* light background with opacity 50% */
+    background: rgb(175 157 157 / 50%); /* light background with opacity 50% */
     border: 1px solid #111; /* black border */
     padding: 20px;
     color: #EEE; /* white text */
@@ -46,8 +46,26 @@ body          {
     display: grid;
   
     /* create 4 columns */
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    grid-template-areas: 
+      "nine eight seven del ac"
+      "four five six mul div"
+      "one two three plus minus"
+      "zero dot eq eq eq"
+      ;
   
     /* add the grid gap */
     grid-gap: 15px;
+  }
+  #equals {
+    grid-area: eq;
+  }
+
+  #del {
+    background-color: red;
+  }
+
+  #clear {
+    background-color: blue;
   }
