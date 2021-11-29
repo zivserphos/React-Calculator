@@ -12,11 +12,12 @@ function calculateResult(exp) {
 
 function calculateExp(exp) {
   const isMinus = exp.charAt(0) === "-" ? true : false;
+  if (isMinus) exp = exp.slice(1);
+  console.log(exp);
   const numbers = exp.split(/[X/+-]/g);
-  console.log(numbers);
   const oper = exp.replace(/[0-9]*[.]?[0-9]/g, "");
-  const [num1, num2] = [numbers[0], numbers[1]];
-  console.log(num1);
+  let [num1, num2] = [numbers[0], numbers[1]];
+  if (isMinus) num1 = num1 * -1;
   if (oper === "X") {
     return (Number(num1) * Number(num2)).toString();
   }

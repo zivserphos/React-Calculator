@@ -7,11 +7,22 @@ export function Calculator() {
   const [exp, setExp] = useState("");
 
   const addSignToExp = (sign) => {
+    if (exp === "0") {
+      if (isNaN(sign)) return;
+      return setExp(sign);
+    }
+    if (sign === "0") {
+      const nums = exp.split(/[X/+-]/g);
+      const lastNum = nums[nums.length - 1];
+      if (lastNum.startsWith("0") && lastNum[1] === undefined) return;
+      return setExp(exp.concat(sign));
+    }
+
     if (sign === "=") {
       return setExp(CalculateResult(exp));
     }
     if (sign === "AC") {
-      return setExp("");
+      return setExp("0");
     }
     if (sign === "DEL") {
       return setExp(exp.slice(0, exp.length - 1));
@@ -27,7 +38,8 @@ export function Calculator() {
     if (isNaN(sign)) {
       const str = exp;
       const lastSign = str.charAt(str.length - 1);
-      if (isNaN(lastSign) && sign !== ".") return;
+      if (isNaN(lastSign) && sign !== ".")
+        return setExp(exp.slice(0, exp.length - 1).concat(sign));
     }
     const newExp = exp.concat(sign);
     setExp(newExp);
