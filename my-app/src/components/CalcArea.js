@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Button from "./Button";
 import numbersToWords from "number-to-words";
 
@@ -21,27 +21,44 @@ const signs = [
   "-",
 ];
 
-class CalcArea extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <div className="calc-area">
-        {signs.map((sign) => {
-          return (
-            <Button
-              key={sign}
-              id={!isNaN(sign) ? numbersToWords.toWords(sign) : sign}
-              addSign={this.props.addSign}
-              sign={sign}
-            />
-          );
-        })}
-      </div>
-    );
-  }
+export function CalcArea({ addSign }) {
+  return (
+    <div className="calc-area">
+      {signs.map((sign) => {
+        return (
+          <Button
+            key={sign}
+            id={!isNaN(sign) ? numbersToWords.toWords(sign) : sign}
+            addSign={addSign}
+            sign={sign}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
-export default CalcArea;
+// class CalcArea extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {};
+//   }
+//   render() {
+//     return (
+//       <div className="calc-area">
+//         {signs.map((sign) => {
+//           return (
+//             <Button
+//               key={sign}
+//               id={!isNaN(sign) ? numbersToWords.toWords(sign) : sign}
+//               addSign={this.props.addSign}
+//               sign={sign}
+//             />
+//           );
+//         })}
+//       </div>
+//     );
+//   }
+// }
+
+// export default CalcArea;
