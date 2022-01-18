@@ -1,5 +1,5 @@
 function calculateResult(exp) {
-  let regex = /[0-9]*[.]?[0-9]+[X/][-]?[0-9]*[.]?[0-9]+/;
+  let regex = /-?[0-9]*[.]?[0-9]+[X/][-]?[0-9]*[.]?[0-9]+/;
   while (exp.match(regex)) {
     exp = exp.replace(regex, calculateExp(exp.match(regex)[0]));
   }
